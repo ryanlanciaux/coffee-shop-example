@@ -19,14 +19,14 @@ function Cart({ items, onRemove }) {
         </tr>
       </thead>
       <tbody>
-        {items.map(item => (
+        {items.map((item, index) => (
           <tr>
             <td>{item.title}</td>
             <td>{item.quantity}</td>
             <td>{item.price}</td>
             <td>{item.price * item.quantity}</td>
             <td colSpan={2}>
-              <button onClick={() => onRemove(item.title)}>remove</button>
+              <button onClick={() => onRemove(index)}>remove</button>
             </td>
           </tr>
         ))}

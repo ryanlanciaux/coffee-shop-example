@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { getCoffeeData } from "../api/getData";
 
 import Layout from "../components/Layout";
 import Loading from "../components/Loading";
 import ItemGroup from "../components/ItemGroup";
+import Cart from "../components/Cart";
+
+import { GlobalContext } from "../components/GlobalStateProvider";
 
 // this should be a reducer
 function useCoffeeData() {
@@ -27,11 +30,19 @@ function useCoffeeData() {
 
 export default function() {
   const { data, isLoading, error } = useCoffeeData();
+  const [showCart, setShowCart] = useState(false);
+  const { dispatch } = useContext(GlobalContext);
 
   return (
-    <Layout>
+    <Layout onToggleCart={() => setShowCart(!showCart)}>
       {isLoading && <Loading />}
-      {data && <ItemGroup data={data} />}
+      {showCart && <Cart />}
+      {data && (
+        <ItemGroup
+          data={data}
+          addToCart={item => dispatch({ type: "ADD_ITEM", payload: item })}
+        />
+      )}
       {error && JSON.stringify(error)}
     </Layout>
   );

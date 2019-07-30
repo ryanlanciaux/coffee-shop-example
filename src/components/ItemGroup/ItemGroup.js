@@ -5,7 +5,7 @@ import Search from "../Search";
 import ItemCard from "../ItemCard";
 import Button from "../Button";
 
-function ItemGroup({ data }) {
+function ItemGroup({ data, addToCart }) {
   const [filter, setFilter] = useState();
   const [filteredData, setFilteredData] = useState();
 
@@ -15,7 +15,6 @@ function ItemGroup({ data }) {
         ? setFilteredData(
             data.filter(
               item =>
-                console.log(item) ||
                 item.title.toLowerCase().indexOf(filter.toLowerCase()) > -1
             )
           )
@@ -62,6 +61,9 @@ function ItemGroup({ data }) {
               imageUrl={item.imageUrl}
               price={item.price}
               description={item.description}
+              onAddToCart={() => {
+                addToCart(item);
+              }}
             />
           ))}
         </Flex>

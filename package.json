@@ -6,6 +6,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
+    "react-spinners": "^0.5.13",
     "reakit": "^1.0.0-beta.4",
     "rebass": "^3.1.2",
     "styled-components": "^4.3.2"

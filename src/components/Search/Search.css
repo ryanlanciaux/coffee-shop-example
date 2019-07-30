@@ -9,3 +9,19 @@
   font-size: 16px;
   padding: 8px;
 }
+
+.Search .clear {
+  background: none;
+  border: none;
+  color: #333;
+  padding: 0;
+  height: 20px;
+  font-size: 12px;
+  max-height: 20px;
+  margin: 0;
+}
+
+.Search .labelWrapper {
+  max-height: 20px;
+  height: 20px;
+}

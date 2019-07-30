@@ -13,6 +13,8 @@ import Layout from "../components/Layout";
 import Search from "../components/Search";
 import Heading from "../components/Heading";
 import Header from "../components/Header";
+import Loading from "../components/Loading";
+import HeaderCart from "../components/HeaderCart";
 
 storiesOf("Button", module).add("default", () => {
   return <Button onClick={action("BUTTON")}>Click this button</Button>;
@@ -33,9 +35,10 @@ storiesOf("ItemCard", module).add("default", () => {
   return (
     <ItemCard
       title="Cappucino"
+      imageUrl="https://source.unsplash.com/collection/1215/800x800"
       onAddToCart={action("Add to cart")}
       description="Delicious blend of espresso and milk"
-      price={15.0}
+      price={2.5}
     />
   );
 });
@@ -54,7 +57,7 @@ storiesOf("Footer", module).add("default", () => {
 });
 
 storiesOf("Header", module).add("default", () => {
-  return <Header />;
+  return <Header itemCount={3} onCheckout={action("On checkout")} />;
 });
 
 storiesOf("Heading", module).add("default", () => {
@@ -67,4 +70,12 @@ storiesOf("Layout", module).add("default", () => {
 
 storiesOf("Search", module).add("default", () => {
   return <Search onEnter={action("SEARCH")} />;
+});
+
+storiesOf("Loading", module).add("default", () => {
+  return <Loading />;
+});
+
+storiesOf("HeaderCart", module).add("default", () => {
+  return <HeaderCart />;
 });

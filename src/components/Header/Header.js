@@ -1,9 +1,9 @@
 import React from "react";
 import { Flex, Box } from "rebass";
 
-import Search from "../Search";
+import HeaderCart from "../HeaderCart";
 
-function Header() {
+function Header({ onCheckout, itemCount }) {
   return (
     <Flex flexDirection={["column", "row"]}>
       <Box width={[1, 1 / 2]}>
@@ -14,7 +14,7 @@ function Header() {
         justifyContent={["flex-start", "flex-end"]}
         alignItems="center"
       >
-        <Search />
+        <HeaderCart onClick={onCheckout} itemCount={itemCount} />
       </Flex>
     </Flex>
   );

@@ -3,7 +3,7 @@ import { Flex, Box } from "rebass";
 
 import HeaderCart from "../HeaderCart";
 
-function Header({ onCheckout, itemCount }) {
+function Header({ onCheckout, itemCount, showCart }) {
   return (
     <Flex flexDirection={["column", "row"]}>
       <Box width={[1, 1 / 2]}>
@@ -14,7 +14,7 @@ function Header({ onCheckout, itemCount }) {
         justifyContent={["flex-start", "flex-end"]}
         alignItems="center"
       >
-        <HeaderCart onClick={onCheckout} itemCount={itemCount} />
+        <HeaderCart onClick={onCheckout} itemCount={itemCount} showCart={showCart} />
       </Flex>
     </Flex>
   );

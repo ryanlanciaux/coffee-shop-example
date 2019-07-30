@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import "./Search.css";
 import Button from "../Button";
 import { Flex, Box } from "rebass";

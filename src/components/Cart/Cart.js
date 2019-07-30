@@ -2,7 +2,7 @@ import React from "react";
 
 function getItemTotals(items) {
   return items.reduce((acc, next) => {
-    return acc + next.price * next.quantity;
+    return acc + next.item.price * next.quantity;
   }, 0);
 }
 
@@ -19,12 +19,12 @@ function Cart({ items, onRemove }) {
         </tr>
       </thead>
       <tbody>
-        {items.map((item, index) => (
-          <tr>
+        {items.map(({ item, quantity }, index) => (
+          <tr key={item.id}>
             <td>{item.title}</td>
-            <td>{item.quantity}</td>
+            <td>{quantity}</td>
             <td>{item.price}</td>
-            <td>{item.price * item.quantity}</td>
+            <td>{item.price * quantity}</td>
             <td colSpan={2}>
               <button onClick={() => onRemove(index)}>remove</button>
             </td>

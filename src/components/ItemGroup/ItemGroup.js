@@ -57,6 +57,7 @@ function ItemGroup({ data, addToCart }) {
         <Flex flexWrap="wrap" mt={20}>
           {filteredData.map(item => (
             <ItemCard
+              key={item.id}
               title={item.title}
               imageUrl={item.imageUrl}
               price={item.price}

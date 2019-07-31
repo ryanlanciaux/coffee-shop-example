@@ -34,10 +34,10 @@ export default function() {
   const { dispatch } = useContext(GlobalContext);
 
   return (
-    <Layout onToggleCart={() => setShowCart(!showCart)}>
+    <Layout onToggleCart={() => setShowCart(!showCart)} showCart={showCart}>
       {isLoading && <Loading />}
       {showCart && <Cart />}
-      {data && (
+      {!showCart && data && (
         <ItemGroup
           data={data}
           addToCart={item => dispatch({ type: "ADD_ITEM", payload: item })}

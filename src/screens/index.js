@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { getCoffeeData } from "../api/getData";
 
 import Layout from "../components/Layout";
@@ -14,16 +14,21 @@ function useCoffeeData() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
 
-  getCoffeeData()
-    .then(newData => {
-      setData(newData);
-      setLoading(false);
-    })
-    .catch(ex => {
-      setData(undefined);
-      setLoading(false);
-      setError(ex);
-    });
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const newData = await getCoffeeData();
+        setData(newData);
+        setLoading(false);
+      } catch (ex) {
+        setData(undefined);
+        setLoading(false);
+        setError(ex);
+      }
+    };
+
+    getData();
+  }, []);
 
   return { data, isLoading: loading, error };
 }

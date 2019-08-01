@@ -45,9 +45,18 @@ storiesOf("ItemCard", module).add("default", () => {
 
 storiesOf("Cart", module).add("default", () => {
   const items = [
-    { title: "Mocha", price: 3.5, quantity: 3 },
-    { title: "Latte", price: 2.5, quantity: 1 },
-    { title: "Americano", price: 1.99, quantity: 2 }
+    {
+      item: { id: "mocha", title: "Mocha", price: 3.5, quantity: 3 },
+      quantity: 3
+    },
+    {
+      item: { id: "latte", title: "Latte", price: 2.5, quantity: 1 },
+      quantity: 2
+    },
+    {
+      item: { id: "americano", title: "Americano", price: 1.99, quantity: 2 },
+      quantity: 1
+    }
   ];
   return <Cart items={items} onRemove={action("on remove")} />;
 });
